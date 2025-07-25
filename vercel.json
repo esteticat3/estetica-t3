@@ -1,0 +1,6 @@
+{
+  "name": "deploy-database",
+  "scripts": {
+    "postbuild": "prisma generate && prisma db push"
+  }
+}
