@@ -1,6 +1,7 @@
 {
-  "name": "deploy-database",
-  "scripts": {
-    "postbuild": "prisma generate && prisma db push"
+  "functions": {
+    "src/pages/**/*.ts": {
+      "runtime": "nodejs20.x"
+    }
   }
 }
