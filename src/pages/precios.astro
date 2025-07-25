@@ -1,0 +1,314 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PricingCard from '../components/PricingCard.astro';
+---
+
+<Layout title="Precios - Belleza Radiante | Paquetes de Tratamientos">
+  <Header />
+  
+  <main class="pt-20">
+    <!-- Hero Section -->
+    <section class="relative py-20 bg-gradient-to-r from-primary to-secondary">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl sm:text-5xl font-playfair font-bold text-white mb-6">
+          Planes y Precios
+        </h1>
+        <p class="text-xl text-white/90 max-w-3xl mx-auto">
+          Encuentra el paquete perfecto para ti. Calidad profesional a precios accesibles
+        </p>
+      </div>
+    </section>
+
+    <!-- Pricing Plans -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl sm:text-4xl font-playfair font-bold text-gray-900 mb-4">
+            Nuestros Paquetes
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Planes diseñados para diferentes necesidades y presupuestos
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <!-- Basic Package -->
+          <PricingCard 
+            title="Esencial"
+            price="$2,500"
+            description="Consulta inicial + 1 tratamiento facial"
+            features={[
+              "Consulta personalizada con especialista",
+              "Limpieza facial profunda profesional",
+              "Hidratación y nutrición de la piel",
+              "Asesoramiento post-tratamiento",
+              "Seguimiento durante 1 mes",
+              "10% descuento en próximo tratamiento"
+            ]}
+            ctaText="Comenzar Ahora"
+          />
+
+          <!-- Intermediate Package -->
+          <PricingCard 
+            title="Renovación"
+            price="$6,800"
+            description="3 sesiones de tratamientos combinados"
+            features={[
+              "Consulta integral personalizada",
+              "Botox preventivo en zona elegida",
+              "2 limpiezas faciales profundas",
+              "Peeling químico suave",
+              "Seguimiento médico por 3 meses",
+              "20% descuento en tratamientos adicionales",
+              "Plan de cuidado domiciliario"
+            ]}
+            isPopular={true}
+            ctaText="Más Popular"
+          />
+
+          <!-- Premium Package -->
+          <PricingCard 
+            title="Transformación"
+            price="$15,000"
+            description="Programa completo de 6 meses"
+            features={[
+              "Evaluación médica completa",
+              "Rellenos labiales con ácido hialurónico",
+              "Botox en múltiples zonas",
+              "6 limpiezas faciales mensuales",
+              "2 sesiones de radiofrecuencia",
+              "Plan personalizado de 6 meses",
+              "Seguimiento médico integral",
+              "30% descuento en tratamientos extras",
+              "Productos de cuidado incluidos"
+            ]}
+            ctaText="Plan Completo"
+          />
+        </div>
+
+        <!-- Additional Info -->
+        <div class="mt-16 bg-gray-50 rounded-2xl p-8">
+          <div class="text-center mb-8">
+            <h3 class="text-2xl font-playfair font-bold text-gray-900 mb-4">
+              ¿Por qué elegir nuestros paquetes?
+            </h3>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="text-center">
+              <div class="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+              <h4 class="text-lg font-semibold text-gray-900 mb-2">Ahorro Garantizado</h4>
+              <p class="text-gray-600">Hasta 30% de descuento vs. tratamientos individuales</p>
+            </div>
+
+            <div class="text-center">
+              <div class="bg-secondary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <h4 class="text-lg font-semibold text-gray-900 mb-2">Seguimiento Personalizado</h4>
+              <p class="text-gray-600">Acompañamiento médico durante todo el proceso</p>
+            </div>
+
+            <div class="text-center">
+              <div class="bg-accent/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>
+              </div>
+              <h4 class="text-lg font-semibold text-gray-900 mb-2">Resultados Garantizados</h4>
+              <p class="text-gray-600">Satisfacción garantizada o reembolso del 100%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Individual Treatments Pricing -->
+    <section class="py-20 bg-light">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl sm:text-4xl font-playfair font-bold text-gray-900 mb-4">
+            Tratamientos Individuales
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            También ofrecemos tratamientos por separado
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Facial Treatments -->
+          <div class="bg-white rounded-2xl p-8 shadow-lg hover-lift">
+            <h3 class="text-xl font-playfair font-bold text-gray-900 mb-6">Tratamientos Faciales</h3>
+            <ul class="space-y-4">
+              <li class="flex justify-between items-center border-b pb-2">
+                <span class="text-gray-700">Rellenos Labiales</span>
+                <span class="font-semibold text-primary">$3,500</span>
+              </li>
+              <li class="flex justify-between items-center border-b pb-2">
+                <span class="text-gray-700">Botox (por zona)</span>
+                <span class="font-semibold text-primary">$4,200</span>
+              </li>
+              <li class="flex justify-between items-center border-b pb-2">
+                <span class="text-gray-700">Relleno de Ojeras</span>
+                <span class="font-semibold text-primary">$4,800</span>
+              </li>
+              <li class="flex justify-between items-center border-b pb-2">
+                <span class="text-gray-700">Limpieza Facial</span>
+                <span class="font-semibold text-primary">$1,800</span>
+              </li>
+              <li class="flex justify-between items-center">
+                <span class="text-gray-700">Peeling Químico</span>
+                <span class="font-semibold text-primary">$2,800</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Body Treatments -->
+          <div class="bg-white rounded-2xl p-8 shadow-lg hover-lift">
+            <h3 class="text-xl font-playfair font-bold text-gray-900 mb-6">Tratamientos Corporales</h3>
+            <ul class="space-y-4">
+              <li class="flex justify-between items-center border-b pb-2">
+                <span class="text-gray-700">Radiofrecuencia</span>
+                <span class="font-semibold text-primary">$3,200</span>
+              </li>
+              <li class="flex justify-between items-center border-b pb-2">
+                <span class="text-gray-700">Criolipólisis</span>
+                <span class="font-semibold text-primary">$4,500</span>
+              </li>
+              <li class="flex justify-between items-center border-b pb-2">
+                <span class="text-gray-700">Mesoterapia</span>
+                <span class="font-semibold text-primary">$2,800</span>
+              </li>
+              <li class="flex justify-between items-center border-b pb-2">
+                <span class="text-gray-700">Drenaje Linfático</span>
+                <span class="font-semibold text-primary">$1,500</span>
+              </li>
+              <li class="flex justify-between items-center">
+                <span class="text-gray-700">Presoterapia</span>
+                <span class="font-semibold text-primary">$1,200</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Consultations -->
+          <div class="bg-white rounded-2xl p-8 shadow-lg hover-lift">
+            <h3 class="text-xl font-playfair font-bold text-gray-900 mb-6">Consultas</h3>
+            <ul class="space-y-4">
+              <li class="flex justify-between items-center border-b pb-2">
+                <span class="text-gray-700">Consulta Inicial</span>
+                <span class="font-semibold text-accent">Gratis</span>
+              </li>
+              <li class="flex justify-between items-center border-b pb-2">
+                <span class="text-gray-700">Valoración Médica</span>
+                <span class="font-semibold text-primary">$800</span>
+              </li>
+              <li class="flex justify-between items-center border-b pb-2">
+                <span class="text-gray-700">Seguimiento</span>
+                <span class="font-semibold text-accent">Incluido</span>
+              </li>
+              <li class="flex justify-between items-center border-b pb-2">
+                <span class="text-gray-700">Segunda Opinión</span>
+                <span class="font-semibold text-primary">$500</span>
+              </li>
+              <li class="flex justify-between items-center">
+                <span class="text-gray-700">Teleconsula</span>
+                <span class="font-semibold text-primary">$300</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Payment Options -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl sm:text-4xl font-playfair font-bold text-gray-900 mb-4">
+            Opciones de Pago
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Facilitamos diferentes formas de pago para tu comodidad
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="text-center p-6 bg-gray-50 rounded-xl hover-lift">
+            <div class="text-4xl mb-4">💳</div>
+            <h3 class="font-semibold text-gray-900 mb-2">Tarjetas</h3>
+            <p class="text-sm text-gray-600">Visa, MasterCard, American Express</p>
+          </div>
+
+          <div class="text-center p-6 bg-gray-50 rounded-xl hover-lift">
+            <div class="text-4xl mb-4">💰</div>
+            <h3 class="font-semibold text-gray-900 mb-2">Efectivo</h3>
+            <p class="text-sm text-gray-600">5% descuento adicional</p>
+          </div>
+
+          <div class="text-center p-6 bg-gray-50 rounded-xl hover-lift">
+            <div class="text-4xl mb-4">🏦</div>
+            <h3 class="font-semibold text-gray-900 mb-2">Transferencia</h3>
+            <p class="text-sm text-gray-600">Pago directo a cuenta</p>
+          </div>
+
+          <div class="text-center p-6 bg-gray-50 rounded-xl hover-lift">
+            <div class="text-4xl mb-4">📅</div>
+            <h3 class="font-semibold text-gray-900 mb-2">Financiamiento</h3>
+            <p class="text-sm text-gray-600">Hasta 12 meses sin intereses</p>
+          </div>
+        </div>
+
+        <!-- Special Offers -->
+        <div class="mt-16 bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 text-center">
+          <h3 class="text-2xl font-playfair font-bold text-red-500 mb-4">
+            🎉 Ofertas Especiales
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-black">
+            <div>
+              <div class="text-lg font-semibold mb-2">Primera Visita</div>
+              <div class="text-sm opacity-90">Consulta + Valoración Gratis</div>
+            </div>
+            <div>
+              <div class="text-lg font-semibold mb-2">Referidos</div>
+              <div class="text-sm opacity-90">15% descuento por cada referido</div>
+            </div>
+            <div>
+              <div class="text-lg font-semibold mb-2">Cumpleaños</div>
+              <div class="text-sm opacity-90">20% descuento en tu mes</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-cream">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-playfair font-bold text-gray-900 mb-6">
+          ¿Tienes Preguntas sobre Nuestros Precios?
+        </h2>
+        <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+          Agenda una consulta gratuita y recibe una cotización personalizada sin compromiso
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/contacto" class="btn-primary text-lg px-8 py-4">
+            ✨ Consulta Gratuita
+          </a>
+          <a href="https://wa.me/5215512345678" target="_blank" class="btn-outline text-lg px-8 py-4">
+            💬 Cotizar por WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

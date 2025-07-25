@@ -1,0 +1,180 @@
+---
+---
+
+<section class="py-16 bg-gradient-to-r from-cream to-white">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl font-playfair font-bold text-gray-900 mb-4">
+        ¿Ya Fuiste Nuestra Cliente?
+      </h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Comparte tu experiencia y ayuda a otras personas a descubrir la belleza radiante que merecen
+      </p>
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-xl p-8">
+      <form id="quick-review-form" class="space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label for="quick-name" class="block text-sm font-medium text-gray-700 mb-2">
+              Tu Nombre *
+            </label>
+            <input
+              type="text"
+              id="quick-name"
+              name="name"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+              placeholder="Nombre completo"
+            />
+          </div>
+          <div>
+            <label for="quick-treatment" class="block text-sm font-medium text-gray-700 mb-2">
+              Tratamiento Realizado *
+            </label>
+            <select
+              id="quick-treatment"
+              name="treatment"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+            >
+              <option value="">Selecciona...</option>
+              <option value="Rellenos Labiales">Rellenos Labiales</option>
+              <option value="Botox Preventivo">Botox Preventivo</option>
+              <option value="Limpieza Facial">Limpieza Facial</option>
+              <option value="Peeling Químico">Peeling Químico</option>
+              <option value="Mesoterapia Facial">Mesoterapia Facial</option>
+              <option value="Radiofrecuencia">Radiofrecuencia</option>
+              <option value="Criolipólisis">Criolipólisis</option>
+              <option value="Rellenos de Ojeras">Rellenos de Ojeras</option>
+              <option value="Hifu Facial">Hifu Facial</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-2">
+            Tu Calificación *
+          </label>
+          <div class="flex items-center space-x-2">
+            {[1, 2, 3, 4, 5].map((star) => (
+              <button
+                type="button"
+                class="quick-star-rating w-8 h-8 text-gray-300 hover:text-secondary transition-colors"
+                data-rating={star}
+              >
+                <svg fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>
+              </button>
+            ))}
+            <input type="hidden" id="quick-rating" name="rating" value="" required />
+            <span class="text-sm text-gray-500 ml-2">Haz clic en las estrellas</span>
+          </div>
+        </div>
+
+        <div>
+          <label for="quick-testimonial" class="block text-sm font-medium text-gray-700 mb-2">
+            Cuéntanos tu Experiencia *
+          </label>
+          <textarea
+            id="quick-testimonial"
+            name="testimonial"
+            required
+            rows="3"
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+            placeholder="Describe brevemente tu experiencia con nosotros..."
+          ></textarea>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <button
+            type="submit"
+            class="btn-primary px-8 py-3 w-full sm:w-auto"
+          >
+            Enviar Mi Reseña
+          </button>
+          <a 
+            href="/resenas" 
+            class="btn-outline px-8 py-3 w-full sm:w-auto text-center"
+          >
+            Ver Todas las Reseñas
+          </a>
+        </div>
+
+        <p class="text-sm text-gray-500 text-center">
+          Tu reseña será revisada antes de ser publicada
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const stars = document.querySelectorAll('.quick-star-rating');
+  const ratingInput = document.getElementById('quick-rating') as HTMLInputElement;
+  
+  stars.forEach(star => {
+    star.addEventListener('click', function() {
+      const rating = parseInt(star.getAttribute('data-rating') || '0');
+      if (ratingInput) ratingInput.value = rating.toString();
+      
+      stars.forEach((s, index) => {
+        if (index < rating) {
+          s.classList.add('text-secondary');
+          s.classList.remove('text-gray-300');
+        } else {
+          s.classList.remove('text-secondary');
+          s.classList.add('text-gray-300');
+        }
+      });
+    });
+  });
+
+  const form = document.getElementById('quick-review-form') as HTMLFormElement;
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(form);
+      const data = {
+        name: formData.get('name') as string,
+        treatment: formData.get('treatment') as string,
+        testimonial: formData.get('testimonial') as string,
+        rating: parseInt(formData.get('rating') as string || '0')
+      };
+
+      if (!data.rating) {
+        alert('Por favor selecciona una calificación');
+        return;
+      }
+
+      try {
+        const response = await fetch('/api/testimonials', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          alert('¡Gracias por tu reseña! Será revisada y publicada pronto.');
+          form.reset();
+          stars.forEach(s => {
+            s.classList.remove('text-secondary');
+            s.classList.add('text-gray-300');
+          });
+          if (ratingInput) ratingInput.value = '';
+        } else {
+          alert('Hubo un error al enviar tu reseña. Por favor intenta de nuevo.');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Hubo un error al enviar tu reseña. Por favor intenta de nuevo.');
+      }
+    });
+  }
+});
+</script>

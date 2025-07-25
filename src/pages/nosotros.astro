@@ -1,0 +1,248 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Nosotros - Belleza Radiante | Clínica Estética">
+  <Header />
+  
+  <main class="pt-20">
+    <!-- Hero Section -->
+    <section class="relative py-20 bg-gradient-to-r from-primary to-secondary">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl sm:text-5xl font-playfair font-bold text-white mb-6">
+          Conoce Nuestro Equipo
+        </h1>
+        <p class="text-xl text-white/90 max-w-3xl mx-auto">
+          10 años de experiencia en medicina estética nos respaldan
+        </p>
+      </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl sm:text-4xl font-playfair font-bold text-gray-900 mb-6">
+              ¿Quiénes Somos?
+            </h2>
+            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+              Belleza Radiante es una clínica estética especializada en medicina estética con más de 10 años 
+              de experiencia en el sector. Nos hemos consolidado como una de las clínicas de referencia en 
+              tratamientos de rejuvenecimiento facial y corporal.
+            </p>
+            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+              Nuestro compromiso es realzar la belleza natural de cada paciente utilizando las técnicas más 
+              avanzadas y seguras del mercado, siempre con un enfoque personalizado y profesional.
+            </p>
+            <p class="text-lg text-gray-600 leading-relaxed">
+              Contamos con instalaciones modernas y equipos de última generación que nos permiten ofrecer 
+              tratamientos de alta calidad en un ambiente cálido y profesional.
+            </p>
+          </div>
+          <div class="relative">
+            <img 
+              src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+              alt="Clínica Belleza Radiante" 
+              class="rounded-2xl shadow-xl"
+              loading="lazy"
+            />
+            <div class="absolute -bottom-6 -right-6 bg-secondary text-white p-6 rounded-xl shadow-lg">
+              <div class="text-3xl font-bold">10+</div>
+              <div class="text-sm">Años de experiencia</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="py-20 bg-light">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div class="bg-white rounded-2xl p-8 shadow-lg hover-lift">
+            <div class="flex items-center mb-6">
+              <div class="bg-primary/10 p-3 rounded-full mr-4">
+                <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-playfair font-bold text-gray-900">Nuestra Misión</h3>
+            </div>
+            <p class="text-gray-600 leading-relaxed">
+              Realzar la belleza natural de nuestros pacientes con técnicas innovadoras y seguras, 
+              brindando resultados excepcionales que aumenten su confianza y bienestar. Nos comprometemos 
+              a ofrecer un servicio personalizado con los más altos estándares de calidad y seguridad.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-2xl p-8 shadow-lg hover-lift">
+            <div class="flex items-center mb-6">
+              <div class="bg-secondary/10 p-3 rounded-full mr-4">
+                <svg class="w-6 h-6 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-playfair font-bold text-gray-900">Nuestra Visión</h3>
+            </div>
+            <p class="text-gray-600 leading-relaxed">
+              Ser la clínica estética líder en tratamientos personalizados, reconocida por nuestra 
+              excelencia médica, innovación tecnológica y compromiso con la satisfacción del paciente. 
+              Aspiramos a transformar vidas a través de la medicina estética de vanguardia.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl sm:text-4xl font-playfair font-bold text-gray-900 mb-4">
+            Nuestro Equipo Médico
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Profesionales certificados con amplia experiencia en medicina estética
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Doctor 1 -->
+          <div class="text-center hover-lift">
+            <div class="relative mb-6">
+              <img 
+                src="images/dra-2.jpg" 
+                alt="Dra. Ana García" 
+                class="w-48 h-48 mx-auto rounded-full object-cover shadow-lg"
+                loading="lazy"
+              />
+              <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-primary text-white px-3 py-1 rounded-full text-sm">
+                Directora Médica
+              </div>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Dra. Ana García</h3>
+            <p class="text-primary font-medium mb-2">Medicina Estética</p>
+            <p class="text-sm text-gray-600">
+              Especialista en medicina estética con 15 años de experiencia. 
+              Certificada en rellenos dérmicos y botox.
+            </p>
+          </div>
+
+          <!-- Doctor 2 -->
+          <div class="text-center hover-lift">
+            <div class="relative mb-6">
+              <img 
+                src="images/dr.jpg" 
+                alt="Dr. Carlos Martínez" 
+                class="w-48 h-48 mx-auto rounded-full object-cover shadow-lg"
+                loading="lazy"
+              />
+              <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-secondary text-white px-3 py-1 rounded-full text-sm">
+                Cirujano Estético
+              </div>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Dr. Carlos Martínez</h3>
+            <p class="text-primary font-medium mb-2">Cirugía Estética</p>
+            <p class="text-sm text-gray-600">
+              Cirujano plástico certificado especializado en procedimientos 
+              faciales mínimamente invasivos.
+            </p>
+          </div>
+
+          <!-- Doctor 3 -->
+          <div class="text-center hover-lift">
+            <div class="relative mb-6">
+              <img 
+                src="images/dra.jpg" 
+                alt="Dra. María López" 
+                class="w-48 h-48 mx-auto rounded-full object-cover shadow-lg"
+                loading="lazy"
+              />
+              <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-accent text-white px-3 py-1 rounded-full text-sm">
+                Dermatóloga
+              </div>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Dra. María López</h3>
+            <p class="text-primary font-medium mb-2">Dermatología</p>
+            <p class="text-sm text-gray-600">
+              Dermatóloga especializada en tratamientos faciales 
+              y medicina estética preventiva.
+            </p>
+          </div>
+
+          <!-- Doctor 4 -->
+          <div class="text-center hover-lift">
+            <div class="relative mb-6">
+              <img 
+                src="/images/Lic-M.jpg" 
+                alt="Lic. Sofia Hernández" 
+                class="w-48 h-48 mx-auto rounded-full object-cover shadow-lg"
+                loading="lazy"
+              />
+              <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-primary text-white px-3 py-1 rounded-full text-sm">
+                Esteticista
+              </div>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">Lic. Sofia Hernández</h3>
+            <p class="text-primary font-medium mb-2">Estética Avanzada</p>
+            <p class="text-sm text-gray-600">
+              Licenciada en estética con especialización en 
+              tratamientos faciales y corporales avanzados.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-playfair font-bold text-gray-900 mb-12">
+          Certificaciones y Acreditaciones
+        </h2>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+          <div class="bg-white p-6 rounded-xl shadow-md hover-lift">
+            <div class="text-4xl mb-3">🏥</div>
+            <h3 class="font-semibold text-gray-900 mb-2">COFEPRIS</h3>
+            <p class="text-sm text-gray-600">Certificados ante COFEPRIS</p>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl shadow-md hover-lift">
+            <div class="text-4xl mb-3">⚕️</div>
+            <h3 class="font-semibold text-gray-900 mb-2">CONAMED</h3>
+            <p class="text-sm text-gray-600">Avalados por CONAMED</p>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl shadow-md hover-lift">
+            <div class="text-4xl mb-3">🎓</div>
+            <h3 class="font-semibold text-gray-900 mb-2">ISAPS</h3>
+            <p class="text-sm text-gray-600">Miembros de ISAPS</p>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl shadow-md hover-lift">
+            <div class="text-4xl mb-3">✅</div>
+            <h3 class="font-semibold text-gray-900 mb-2">ISO 9001</h3>
+            <p class="text-sm text-gray-600">Calidad certificada</p>
+          </div>
+        </div>
+
+        <div class="mt-12 bg-primary/10 rounded-2xl p-8">
+          <h3 class="text-2xl font-playfair font-bold text-gray-900 mb-4">
+            Nuestro Compromiso Contigo
+          </h3>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            En Belleza Radiante, tu seguridad y satisfacción son nuestra prioridad. 
+            Utilizamos únicamente productos aprobados por las autoridades sanitarias y 
+            seguimos estrictos protocolos de seguridad en todos nuestros procedimientos.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

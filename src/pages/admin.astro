@@ -1,0 +1,236 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { PrismaClient } from '@prisma/client';
+
+export const prerender = false;
+
+const prisma = new PrismaClient();
+
+// Obtener reseñas pendientes de aprobación
+const pendingTestimonials = await prisma.testimonial.findMany({
+  where: {
+    approved: false
+  },
+  orderBy: {
+    createdAt: 'desc'
+  }
+});
+
+// Obtener reseñas aprobadas
+const approvedTestimonials = await prisma.testimonial.findMany({
+  where: {
+    approved: true
+  },
+  orderBy: {
+    createdAt: 'desc'
+  },
+  take: 10
+});
+---
+
+<Layout title="Administración de Reseñas - Belleza Radiante">
+  <Header />
+  
+  <main class="pt-20">
+    <!-- Hero Section -->
+    <section class="py-12 bg-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-playfair font-bold text-gray-900 mb-4">
+          Administración de Reseñas
+        </h1>
+        <p class="text-gray-600">
+          Gestiona las reseñas de clientes pendientes de aprobación
+        </p>
+      </div>
+    </section>
+
+    <!-- Estadísticas -->
+    <section class="py-8 bg-white border-b">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-yellow-50 p-6 rounded-lg">
+            <h3 class="text-2xl font-bold text-yellow-800">{pendingTestimonials.length}</h3>
+            <p class="text-yellow-600">Pendientes de Aprobación</p>
+          </div>
+          <div class="bg-green-50 p-6 rounded-lg">
+            <h3 class="text-2xl font-bold text-green-800">{approvedTestimonials.length}</h3>
+            <p class="text-green-600">Reseñas Aprobadas</p>
+          </div>
+          <div class="bg-blue-50 p-6 rounded-lg">
+            <h3 class="text-2xl font-bold text-blue-800">{((approvedTestimonials.reduce((sum, t) => sum + t.rating, 0) / approvedTestimonials.length) || 0).toFixed(1)}</h3>
+            <p class="text-blue-600">Calificación Promedio</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reseñas Pendientes -->
+    <section class="py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-8">
+          Reseñas Pendientes de Aprobación
+        </h2>
+
+        {pendingTestimonials.length === 0 ? (
+          <div class="text-center py-12 bg-gray-50 rounded-lg">
+            <p class="text-gray-500 text-lg">No hay reseñas pendientes de aprobación</p>
+          </div>
+        ) : (
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {pendingTestimonials.map((testimonial) => (
+              <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                <div class="flex justify-between items-start mb-4">
+                  <div>
+                    <h3 class="font-semibold text-gray-900">{testimonial.name}</h3>
+                    <p class="text-sm text-gray-500">{testimonial.treatment}</p>
+                    <p class="text-xs text-gray-400">
+                      {new Date(testimonial.createdAt).toLocaleDateString('es-ES', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                      })}
+                    </p>
+                  </div>
+                  <div class="flex items-center">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <svg 
+                        class={`w-4 h-4 ${i < testimonial.rating ? 'text-yellow-400' : 'text-gray-300'}`}
+                        fill="currentColor" 
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                      </svg>
+                    ))}
+                  </div>
+                </div>
+
+                <blockquote class="text-gray-700 italic mb-4 border-l-4 border-gray-200 pl-4">
+                  "{testimonial.testimonial}"
+                </blockquote>
+
+                <div class="flex space-x-3">
+                  <button
+                    onclick={`approveTestimonial(${testimonial.id})`}
+                    class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+                  >
+                    ✓ Aprobar
+                  </button>
+                  <button
+                    onclick={`deleteTestimonial(${testimonial.id})`}
+                    class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+                  >
+                    ✗ Rechazar
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+
+    <!-- Reseñas Aprobadas Recientes -->
+    <section class="py-12 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-8">
+          Reseñas Aprobadas Recientes
+        </h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {approvedTestimonials.map((testimonial) => (
+            <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+              <div class="flex justify-between items-start mb-4">
+                <div>
+                  <h3 class="font-semibold text-gray-900">{testimonial.name}</h3>
+                  <p class="text-sm text-gray-500">{testimonial.treatment}</p>
+                  <p class="text-xs text-gray-400">
+                    {new Date(testimonial.createdAt).toLocaleDateString('es-ES', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric'
+                    })}
+                  </p>
+                </div>
+                <div class="flex items-center">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <svg 
+                      class={`w-4 h-4 ${i < testimonial.rating ? 'text-yellow-400' : 'text-gray-300'}`}
+                      fill="currentColor" 
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                    </svg>
+                  ))}
+                </div>
+              </div>
+
+              <blockquote class="text-gray-700 italic border-l-4 border-green-200 pl-4">
+                "{testimonial.testimonial}"
+              </blockquote>
+
+              <div class="mt-4">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                  ✓ Aprobada
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script is:inline>
+async function approveTestimonial(id) {
+  try {
+    const response = await fetch('/api/admin/testimonials/approve', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id })
+    });
+
+    if (response.ok) {
+      alert('Reseña aprobada exitosamente');
+      window.location.reload();
+    } else {
+      alert('Error al aprobar la reseña');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    alert('Error al aprobar la reseña');
+  }
+}
+
+async function deleteTestimonial(id) {
+  if (!confirm('¿Estás seguro de que quieres rechazar esta reseña?')) {
+    return;
+  }
+
+  try {
+    const response = await fetch('/api/admin/testimonials/delete', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id })
+    });
+
+    if (response.ok) {
+      alert('Reseña rechazada exitosamente');
+      window.location.reload();
+    } else {
+      alert('Error al rechazar la reseña');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    alert('Error al rechazar la reseña');
+  }
+}
+</script>

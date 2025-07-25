@@ -1,0 +1,8 @@
+<!-- Este es un placeholder para el favicon. En producción se debe reemplazar con un archivo .ico real -->
+<!-- Favicon generado con: https://favicon.io/favicon-generator/ -->
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <rect width="32" height="32" fill="#E91E63"/>
+  <text x="16" y="22" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">B</text>
+  <circle cx="8" cy="8" r="2" fill="#F5C842"/>
+  <circle cx="24" cy="8" r="2" fill="#F5C842"/>
+</svg>

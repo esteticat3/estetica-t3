@@ -1,0 +1,97 @@
+---
+---
+
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background Image with Overlay -->
+  <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-black/30 z-10"></div>
+    <img 
+      src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+      alt="Tratamiento facial profesional en Belleza Radiante" 
+      class="w-full h-full object-cover"
+      loading="eager"
+    />
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-playfair font-bold text-white mb-6 leading-tight fade-in">
+        Realza tu 
+        <span class="text-secondary">Belleza Natural</span>
+      </h1>
+      
+      <p class="text-lg sm:text-xl text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed fade-in">
+        Clínica estética especializada en medicina estética con 10 años de experiencia. 
+        Tratamientos seguros y resultados naturales que resaltan tu belleza única.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center fade-in">
+        <a href="/contacto" class="btn-primary text-lg px-8 py-4">
+          ✨ Agenda tu Consulta
+        </a>
+        <a href="/servicios" class="btn-outline text-lg px-8 py-4 bg-white/10 backdrop-blur-sm border-white text-white hover:bg-white hover:text-gray-900">
+          Ver Servicios
+        </a>
+      </div>
+
+      <!-- Trust Indicators -->
+      <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 text-white/90 fade-in">
+        <div class="text-center">
+          <div class="text-3xl font-bold text-secondary mb-2">10+</div>
+          <div class="text-sm">Años de Experiencia</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-secondary mb-2">1000+</div>
+          <div class="text-sm">Clientes Satisfechos</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-secondary mb-2">100%</div>
+          <div class="text-sm">Tratamientos Seguros</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+    <div class="flex flex-col items-center text-white/70 animate-bounce">
+      <span class="text-sm mb-2">Descubre más</span>
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+
+  .fade-in:nth-child(2) {
+    animation-delay: 0.2s;
+    opacity: 0;
+  }
+
+  .fade-in:nth-child(3) {
+    animation-delay: 0.4s;
+    opacity: 0;
+  }
+
+  .fade-in:nth-child(4) {
+    animation-delay: 0.6s;
+    opacity: 0;
+  }
+</style>

@@ -1,0 +1,65 @@
+---
+export interface Props {
+  title: string;
+  price: string;
+  description: string;
+  features: string[];
+  isPopular?: boolean;
+  ctaText?: string;
+}
+
+const { title, price, description, features, isPopular = false, ctaText = "Seleccionar Plan" } = Astro.props;
+---
+
+<div class={`relative bg-white rounded-2xl shadow-xl p-8 hover-lift ${isPopular ? 'ring-2 ring-primary scale-105' : ''}`}>
+  {isPopular && (
+    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+      <span class="bg-primary text-white px-4 py-2 rounded-full text-sm font-semibold">
+        ⭐ Más Popular
+      </span>
+    </div>
+  )}
+
+  <div class="text-center mb-6">
+    <h3 class="text-2xl font-playfair font-bold text-gray-900 mb-2">
+      {title}
+    </h3>
+    <div class="text-4xl font-bold text-primary mb-2">
+      {price}
+      <span class="text-lg text-gray-500 font-normal">MXN</span>
+    </div>
+    <p class="text-gray-600">
+      {description}
+    </p>
+  </div>
+
+  <ul class="space-y-3 mb-8">
+    {features.map((feature) => (
+      <li class="flex items-start">
+        <svg class="w-5 h-5 mr-3 mt-0.5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+        </svg>
+        <span class="text-gray-700">{feature}</span>
+      </li>
+    ))}
+  </ul>
+
+  <div class="text-center">
+    <a 
+      href="/contacto" 
+      class={`block w-full py-4 px-6 rounded-lg font-semibold transition-all duration-300 ${
+        isPopular 
+          ? 'btn-primary' 
+          : 'btn-outline'
+      }`}
+    >
+      {ctaText}
+    </a>
+  </div>
+
+  <div class="mt-4 text-center">
+    <a href="https://wa.me/9661119286" target="_blank" class="text-sm text-primary hover:underline">
+      💬 Consultar por WhatsApp
+    </a>
+  </div>
+</div>
